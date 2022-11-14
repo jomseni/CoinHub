@@ -13,7 +13,7 @@ public class MarketController {
     private CommonMarketService commonMarketService;   //스프링에 생성자를 사용하는 대신 인스턴스를 만들어놓고 autowired 어노테이션을 통해서 언제든 호출해서 사용가능하게 한다.
 
     @GetMapping("/price") // 코인의 최근 가격 : 어떤 마켓, 어떤 코인인지의 정보가 들어간다.
-    // Get요청에선 /price? martet = A & market = b 정보가 이런식으로 들어가는데 그 파라미터를 RequestParam을 사용해서 넣는다
+    // Get요청에선 /price? market = A & market = b 정보가 이런식으로 들어가는데 그 파라미터를 RequestParam을 사용해서 넣는다
     public double getPrice(@RequestParam String market, @RequestParam String coin){
         //마켓Service에서 메서드를 실행할 것이다(컨트롤러가 service를 이용한다.컨트롤러가 모든 요청을 할 수 없다)
         return commonMarketService.getPrice(market,coin);
